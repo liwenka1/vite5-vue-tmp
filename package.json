@@ -13,6 +13,7 @@
 		"prettier": "prettier --write \"**/*.{ts,tsx,json,css,vue,html,md}\""
 	},
 	"dependencies": {
+		"normalize.css": "^8.0.1",
 		"vue": "^3.3.8"
 	},
 	"devDependencies": {

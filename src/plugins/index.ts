@@ -1,2 +1,2 @@
 // 将插件统一导出
-export { setupNaive } from './antDesign'
+export { setupAntDesign } from './antDesign'
