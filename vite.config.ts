@@ -1,14 +1,15 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+import { wrapperEnv } from './build/utils'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd())
+  const { VITE_PORT, VITE_API_BASE_URL, VITE_PUBLIC_PATH } = wrapperEnv(mode, process)
 
   return {
     plugins: [vue()],
-    base: env.VITE_PUBLIC_PATH,
+    base: VITE_PUBLIC_PATH,
     resolve: {
       alias: { '@': path.resolve(__dirname, 'src') }
     },
@@ -21,10 +22,10 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       host: true,
-      port: 4000,
+      port: Number(VITE_PORT),
       proxy: {
         '/api': {
-          target: env.VITE_APP_BASE_URL,
+          target: VITE_API_BASE_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace('/^/api/', '')
         }
