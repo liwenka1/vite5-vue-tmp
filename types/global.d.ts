@@ -3,9 +3,9 @@ interface ImportMetaEnv extends ViteEnv {
 }
 
 declare interface ViteEnv {
+  VITE_TITLE: string
   VITE_PORT: string
   VITE_API_BASE_URL: string
   VITE_PUBLIC_PATH: string
   VITE_NAME: string
 }
-

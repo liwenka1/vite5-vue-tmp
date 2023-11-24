@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [vue()],
-    base: VITE_PUBLIC_PATH,
+    base: VITE_PUBLIC_PATH, // 开发或生产环境服务的公共基础路径 配置引入相对路径
     resolve: {
       alias: { '@': path.resolve(__dirname, 'src') }
     },

@@ -1,5 +1,10 @@
 import { createApp } from 'vue'
-import './style.css'
+import './styles/index.scss'
 import App from './App.vue'
+import { setupNaive } from './plugins'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+setupNaive(app)
+
+app.mount('#app')
