@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import './styles/index.scss'
 import App from './App.vue'
-import { setupNaive } from './plugins'
+import { setupAntDesign } from './plugins/antDesign'
 
 const app = createApp(App)
 
-setupNaive(app)
+setupAntDesign(app)
 
 app.mount('#app')
