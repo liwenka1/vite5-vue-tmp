@@ -47,7 +47,9 @@
           <a-breadcrumb-item>User</a-breadcrumb-item>
           <a-breadcrumb-item>Bill</a-breadcrumb-item>
         </a-breadcrumb>
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">Bill is a cat.</div>
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+          <RouterView />
+        </div>
       </a-layout-content>
       <a-layout-footer style="text-align: center"> Ant Design ©2018 Created by Ant UED </a-layout-footer>
     </a-layout>
@@ -56,6 +58,7 @@
 <script lang="ts" setup>
 import { PieChartOutlined, DesktopOutlined, UserOutlined, TeamOutlined, FileOutlined } from '@ant-design/icons-vue'
 import { ref } from 'vue'
+import { RouterView } from 'vue-router'
 import Header from './Header.vue'
 
 const collapsed = ref<boolean>(false)
