@@ -39,7 +39,9 @@
       </a-menu>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0" />
+      <a-layout-header style="background: #fff; padding: 0">
+        <Header />
+      </a-layout-header>
       <a-layout-content style="margin: 0 16px">
         <a-breadcrumb style="margin: 16px 0">
           <a-breadcrumb-item>User</a-breadcrumb-item>
@@ -54,11 +56,13 @@
 <script lang="ts" setup>
 import { PieChartOutlined, DesktopOutlined, UserOutlined, TeamOutlined, FileOutlined } from '@ant-design/icons-vue'
 import { ref } from 'vue'
+import Header from './Header.vue'
+
 const collapsed = ref<boolean>(false)
 const selectedKeys = ref<string[]>(['1'])
 </script>
 <style scoped>
-#components-layout-demo-side .logo {
+.logo {
   height: 32px;
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);

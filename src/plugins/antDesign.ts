@@ -1,4 +1,4 @@
-import type { App, Plugin } from 'vue'
+import type { App } from 'vue'
 import {
   Layout,
   LayoutSider,
@@ -8,13 +8,25 @@ import {
   LayoutFooter,
   LayoutHeader,
   SubMenu,
-  Breadcrumb
+  Breadcrumb,
+  BreadcrumbItem
 } from 'ant-design-vue'
 
-const components = [Layout, LayoutSider, Menu, MenuItem, LayoutContent, LayoutFooter, LayoutHeader, SubMenu, Breadcrumb]
+const components = [
+  Layout,
+  LayoutSider,
+  Menu,
+  MenuItem,
+  LayoutContent,
+  LayoutFooter,
+  LayoutHeader,
+  SubMenu,
+  Breadcrumb,
+  BreadcrumbItem
+]
 
 export const setupAntDesign = (app: App<Element>) => {
   for (const component of components) {
-    app.use(component as Plugin<[]>)
+    app.component(component.name, component)
   }
 }
