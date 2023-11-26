@@ -1,7 +1,7 @@
 <template>
   <span>home</span>
-  <p>{{ count }}</p>
-  <button @click="handleClick">点我++</button>
+  <div><a-input-number id="inputNumber" v-model:value="count" />当前值：{{ count }}</div>
+  <a-button @click="handleClick">点我++</a-button>
 </template>
 
 <script lang="ts" setup>

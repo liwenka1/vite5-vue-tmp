@@ -1,7 +1,16 @@
+<template>
+  <a-config-provider
+    :theme="{ token: { colorPrimary: themeData.colorPrimary, borderRadius: `${themeData.borderRadius}px` } }"
+  >
+    <Layout />
+  </a-config-provider>
+</template>
+
 <script setup lang="ts">
 import Layout from './components/Layout/index.vue'
-</script>
+import { useThemeStore } from './store/useTheme'
+import { storeToRefs } from 'pinia'
 
-<template>
-  <Layout />
-</template>
+const store = useThemeStore()
+const { themeData } = storeToRefs(store)
+</script>

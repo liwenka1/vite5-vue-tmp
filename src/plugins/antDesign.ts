@@ -9,7 +9,10 @@ import {
   LayoutHeader,
   SubMenu,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Button,
+  InputNumber,
+  ConfigProvider
 } from 'ant-design-vue'
 
 const components = [
@@ -22,7 +25,10 @@ const components = [
   LayoutHeader,
   SubMenu,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Button,
+  InputNumber,
+  ConfigProvider
 ]
 
 export const setupAntDesign = (app: App<Element>) => {
