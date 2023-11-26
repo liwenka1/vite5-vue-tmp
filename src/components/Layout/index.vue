@@ -3,11 +3,11 @@
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
       <div class="logo" />
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item key="1">
+        <a-menu-item key="1" @click="handleMenu('/')">
           <pie-chart-outlined />
           <span>Option 1</span>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="2" @click="handleMenu('/about')">
           <desktop-outlined />
           <span>Option 2</span>
         </a-menu-item>
@@ -58,11 +58,15 @@
 <script lang="ts" setup>
 import { PieChartOutlined, DesktopOutlined, UserOutlined, TeamOutlined, FileOutlined } from '@ant-design/icons-vue'
 import { ref } from 'vue'
-import { RouterView } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
 import Header from './Header.vue'
 
 const collapsed = ref<boolean>(false)
 const selectedKeys = ref<string[]>(['1'])
+const router = useRouter()
+const handleMenu = (key: string) => {
+  router.push(key)
+}
 </script>
 <style scoped>
 .logo {
