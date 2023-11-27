@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
 import { wrapperEnv } from './build/utils'
 
@@ -8,7 +9,15 @@ export default defineConfig(({ mode }) => {
   const { VITE_PORT, VITE_API_BASE_URL, VITE_PUBLIC_PATH } = wrapperEnv(mode, process)
 
   return {
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      createSvgIconsPlugin({
+        // Specify the icon folder to be cached
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        // Specify symbolId format
+        symbolId: 'svg-icon-[dir]-[name]'
+      })
+    ],
     base: VITE_PUBLIC_PATH, // 开发或生产环境服务的公共基础路径 配置引入相对路径
     resolve: {
       alias: { '@': path.resolve(__dirname, 'src') }

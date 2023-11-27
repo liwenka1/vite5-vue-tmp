@@ -1,16 +1,12 @@
 import { createApp } from 'vue'
-import 'normalize.css'
-import '@/styles/index.scss'
 import App from './App.vue'
-import { setupAntDesign, setupPinia } from '@/plugins/index'
+import { setupPlugins } from '@/plugins/index'
 import router from '@/router/index'
 
 const app = createApp(App)
 
+setupPlugins(app)
+
 app.use(router)
-
-setupAntDesign(app)
-
-setupPinia(app)
 
 app.mount('#app')

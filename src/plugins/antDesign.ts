@@ -37,7 +37,7 @@ const components = [
   FormItem
 ]
 
-export const setupAntDesign = (app: App<Element>) => {
+export const setupAntDesign = (app: App) => {
   for (const component of components) {
     app.component(component.name, component)
   }

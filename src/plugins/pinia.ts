@@ -5,6 +5,6 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
-export const setupPinia = (app: App<Element>) => {
+export const setupPinia = (app: App) => {
   app.use(pinia)
 }
