@@ -1,6 +1,12 @@
 <template>
   <a-config-provider
-    :theme="{ token: { colorPrimary: themeData.colorPrimary, borderRadius: `${themeData.borderRadius}px` } }"
+    :theme="{
+      token: {
+        colorPrimary: themeData.colorPrimary,
+        borderRadius: `${themeData.borderRadius}px`,
+        colorBgBase: themeData.colorBgBase
+      }
+    }"
   >
     <Layout />
   </a-config-provider>

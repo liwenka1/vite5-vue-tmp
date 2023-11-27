@@ -12,7 +12,10 @@ import {
   BreadcrumbItem,
   Button,
   InputNumber,
-  ConfigProvider
+  ConfigProvider,
+  Input,
+  Form,
+  FormItem
 } from 'ant-design-vue'
 
 const components = [
@@ -28,7 +31,10 @@ const components = [
   BreadcrumbItem,
   Button,
   InputNumber,
-  ConfigProvider
+  ConfigProvider,
+  Input,
+  Form,
+  FormItem
 ]
 
 export const setupAntDesign = (app: App<Element>) => {

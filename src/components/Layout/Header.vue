@@ -1,6 +1,7 @@
 <template>
-  <span>这里是头部</span>
-  <Theme />
+  <div>
+    <Theme />
+  </div>
 </template>
 
 <script lang="ts" setup>

@@ -1,5 +1,5 @@
 <template>
-  <a-form :model="themeData" name="theme" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }">
+  <a-form :model="themeData" name="theme" layout="inline">
     <a-form-item name="colorPrimary" label="Primary Color">
       <input
         type="color"
@@ -7,6 +7,17 @@
         @input="
           (e) => {
             themeData.colorPrimary = (e.target as HTMLInputElement).value
+          }
+        "
+      />
+    </a-form-item>
+		<a-form-item name="colorBgBase" label="BgBase Color">
+      <input
+        type="color"
+        :value="themeData.colorBgBase"
+        @input="
+          (e) => {
+            themeData.colorBgBase = (e.target as HTMLInputElement).value
           }
         "
       />
