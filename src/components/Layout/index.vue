@@ -59,7 +59,7 @@
 import { PieChartOutlined, DesktopOutlined, UserOutlined, TeamOutlined, FileOutlined } from '@ant-design/icons-vue'
 import { ref } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
-import Header from './Header.vue'
+import Header from './header/index.vue'
 
 const collapsed = ref<boolean>(false)
 const selectedKeys = ref<string[]>(['1'])

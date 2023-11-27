@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import Layout from './components/Layout/index.vue'
-import { useThemeStore } from './store/useTheme'
+import Layout from '@/components/Layout/index.vue'
+import { useThemeStore } from '@/store/useTheme'
 import { storeToRefs } from 'pinia'
 
 const store = useThemeStore()

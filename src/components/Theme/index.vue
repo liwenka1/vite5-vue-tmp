@@ -32,7 +32,7 @@
 </template>
 <script lang="ts" setup>
 import { theme } from 'ant-design-vue'
-import { useThemeStore } from '../../store/useTheme'
+import { useThemeStore } from '@/store/useTheme'
 import { storeToRefs } from 'pinia'
 
 const store = useThemeStore()
