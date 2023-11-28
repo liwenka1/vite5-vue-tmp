@@ -68,6 +68,7 @@ const themeColor = [
     value: '#722ED1'
   }
 ] as const
+type ThemeColor = (typeof themeColor)[number]['value']
 
 /** 布局风格 */
 const themeLayout = [
@@ -80,5 +81,6 @@ const themeLayout = [
     value: 'topmenu'
   }
 ] as const
+type ThemeLayout = (typeof themeLayout)[number]['value']
 
-export { themeStyle, themeColor, themeLayout, type ThemeStyle }
+export { themeStyle, themeColor, themeLayout, type ThemeStyle, type ThemeColor, type ThemeLayout }

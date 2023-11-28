@@ -5,7 +5,11 @@
       <a-descriptions-item v-for="style in themeStyle" :key="style.key">
         <a-tooltip>
           <template #title>{{ style.label }}</template>
-          <div class="style-checbox-item" @click="setStylePrimary(style)">
+          <div
+            class="style-checbox-item"
+            :class="{ active: stylePrimary.key === style.key }"
+            @click="setStylePrimary(style)"
+          >
             <SvgIcon :name="style.value" size="50"></SvgIcon>
           </div>
         </a-tooltip>
@@ -27,7 +31,11 @@
       <a-descriptions-item v-for="layout in themeLayout" :key="layout.value">
         <a-tooltip>
           <template #title>{{ layout.label }}</template>
-          <div class="style-checbox-item" @click="setLayoutPrimary(layout.value)">
+          <div
+            class="style-checbox-item"
+            :class="{ active: layoutPrimary === layout.value }"
+            @click="setLayoutPrimary(layout.value)"
+          >
             <SvgIcon :name="layout.value" size="50"></SvgIcon>
           </div>
         </a-tooltip>
@@ -38,7 +46,7 @@
 <script lang="ts" setup>
 import { ref, h } from 'vue'
 import { SettingOutlined } from '@ant-design/icons-vue'
-import { themeStyle, themeLayout, themeColor, ThemeStyle } from './constant'
+import { themeStyle, themeLayout, themeColor } from './constant'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
 
@@ -49,15 +57,7 @@ const showDrawer = () => {
 
 const store = useLayoutSetting()
 const { colorPrimary, layoutPrimary, stylePrimary } = storeToRefs(store)
-const setColorPrimary = (color: string) => {
-  colorPrimary.value = color
-}
-const setLayoutPrimary = (layout: string) => {
-  layoutPrimary.value = layout
-}
-const setStylePrimary = (style: ThemeStyle) => {
-  stylePrimary.value = style
-}
+const { setColorPrimary, setLayoutPrimary, setStylePrimary } = store
 </script>
 <style lang="scss" scoped>
 .style-checbox-item {

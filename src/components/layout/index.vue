@@ -83,6 +83,8 @@
               <span>File</span>
             </a-menu-item>
           </a-menu>
+          <Avatar />
+          <Theme />
         </div>
       </a-layout-header>
       <a-layout-content>
@@ -101,6 +103,8 @@ import { RouterView, useRouter } from 'vue-router'
 import Header from './header/index.vue'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
+import Theme from '@/components/theme/index.vue'
+import Avatar from '@/components/avatar/index.vue'
 
 const collapsed = ref<boolean>(false)
 const selectedKeys = ref<string[]>(['1'])
