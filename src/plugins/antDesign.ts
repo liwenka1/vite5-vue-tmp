@@ -15,7 +15,11 @@ import {
   ConfigProvider,
   Input,
   Form,
-  FormItem
+  FormItem,
+  Drawer,
+  Avatar,
+  Dropdown,
+  MenuDivider
 } from 'ant-design-vue'
 
 const components = [
@@ -34,7 +38,11 @@ const components = [
   ConfigProvider,
   Input,
   Form,
-  FormItem
+  FormItem,
+  Drawer,
+  Avatar,
+  Dropdown,
+  MenuDivider
 ]
 
 export const setupAntDesign = (app: App) => {
