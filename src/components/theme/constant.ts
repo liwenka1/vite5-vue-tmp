@@ -6,20 +6,24 @@ const { defaultAlgorithm, darkAlgorithm } = theme
 const themeStyle = [
   {
     label: '亮色主题风格',
+    key: 'light',
     value: 'light',
     algorithm: defaultAlgorithm
   },
   {
     label: '暗色主题风格',
+    key: 'dark',
     value: 'dark',
     algorithm: defaultAlgorithm
   },
   {
     label: '暗黑模式',
-    value: 'realDark',
+    key: 'realDark',
+    value: 'dark',
     algorithm: darkAlgorithm
   }
 ] as const
+type ThemeStyle = (typeof themeStyle)[number]
 
 /** 主题颜色 */
 const themeColor = [
@@ -77,4 +81,4 @@ const themeLayout = [
   }
 ] as const
 
-export { themeStyle, themeColor, themeLayout }
+export { themeStyle, themeColor, themeLayout, type ThemeStyle }

@@ -1,15 +1,19 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { theme } from 'ant-design-vue'
+import { ThemeStyle } from '@/components/theme/constant'
+
+const { defaultAlgorithm } = theme
 
 export const useLayoutSetting = defineStore('layoutSetting', () => {
-  const count = ref(0)
-  const setCount = (countVal?: number) => {
-    if (countVal) {
-      count.value = countVal
-    } else {
-      count.value++
-    }
-  }
+  const colorPrimary = ref('#1677FF')
+  const layoutPrimary = ref('sidemenu')
+  const stylePrimary = ref<ThemeStyle>({
+    label: '亮色主题风格',
+    key: 'light',
+    value: 'light',
+    algorithm: defaultAlgorithm
+  })
 
-  return { count, setCount }
+  return { colorPrimary, layoutPrimary, stylePrimary }
 })

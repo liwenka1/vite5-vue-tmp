@@ -22,7 +22,8 @@ import {
   MenuDivider,
   Descriptions,
   DescriptionsItem,
-  Tooltip
+  Tooltip,
+  Tag
 } from 'ant-design-vue'
 
 const components = [
@@ -48,7 +49,8 @@ const components = [
   MenuDivider,
   Descriptions,
   DescriptionsItem,
-  Tooltip
+  Tooltip,
+  Tag
 ]
 
 export const setupAntDesign = (app: App) => {

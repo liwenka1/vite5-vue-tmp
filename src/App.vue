@@ -1,10 +1,9 @@
 <template>
   <a-config-provider
     :theme="{
+      algorithm: stylePrimary.algorithm,
       token: {
-        colorPrimary: themeData.colorPrimary,
-        // borderRadius: `${themeData.borderRadius}px`,
-        colorBgBase: themeData.colorBgBase
+        colorPrimary: colorPrimary
       }
     }"
   >
@@ -14,9 +13,9 @@
 
 <script setup lang="ts">
 import Layout from '@/components/layout/index.vue'
-import { useThemeStore } from '@/store/useTheme'
+import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
 
-const store = useThemeStore()
-const { themeData } = storeToRefs(store)
+const store = useLayoutSetting()
+const { colorPrimary, stylePrimary } = storeToRefs(store)
 </script>

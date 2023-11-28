@@ -1,12 +1,34 @@
 <template>
   <a-button type="primary" @click="showDrawer" shape="circle" :icon="h(SettingOutlined)"></a-button>
-  <a-drawer v-model:open="open" placement="right" @after-open-change="afterOpenChange">
-    <a-descriptions title="主题风格">
-      <a-descriptions-item v-for="style in themeStyle" :key="style.value">
+  <a-drawer v-model:open="open" placement="right">
+    <a-descriptions title="主题风格" :column="5">
+      <a-descriptions-item v-for="style in themeStyle" :key="style.key">
         <a-tooltip>
           <template #title>{{ style.label }}</template>
-          <div class="style-checbox-item">
-            <SvgIcon name="vue" size="50"></SvgIcon>
+          <div class="style-checbox-item" @click="setStylePrimary(style)">
+            <SvgIcon :name="style.value" size="50"></SvgIcon>
+          </div>
+        </a-tooltip>
+      </a-descriptions-item>
+    </a-descriptions>
+    <a-descriptions title="主题颜色" :column="4">
+      <a-descriptions-item v-for="color in themeColor" :key="color.key">
+        <div class="style-checbox-item">
+          <a-tooltip>
+            <template #title>{{ color.label }}</template>
+            <a-tag :color="color.value" @click="setColorPrimary(color.value)">
+              <span :class="{ colorNoActive: colorPrimary !== color.value }">✔</span>
+            </a-tag>
+          </a-tooltip>
+        </div>
+      </a-descriptions-item>
+    </a-descriptions>
+    <a-descriptions title="布局风格" :column="5">
+      <a-descriptions-item v-for="layout in themeLayout" :key="layout.value">
+        <a-tooltip>
+          <template #title>{{ layout.label }}</template>
+          <div class="style-checbox-item" @click="setLayoutPrimary(layout.value)">
+            <SvgIcon :name="layout.value" size="50"></SvgIcon>
           </div>
         </a-tooltip>
       </a-descriptions-item>
@@ -16,15 +38,25 @@
 <script lang="ts" setup>
 import { ref, h } from 'vue'
 import { SettingOutlined } from '@ant-design/icons-vue'
-import { themeStyle } from './constant'
+import { themeStyle, themeLayout, themeColor, ThemeStyle } from './constant'
+import { useLayoutSetting } from '@/store/useLayoutSetting'
+import { storeToRefs } from 'pinia'
+
 const open = ref<boolean>(false)
-
-const afterOpenChange = (bool: boolean) => {
-  console.log('open', bool)
-}
-
 const showDrawer = () => {
   open.value = true
+}
+
+const store = useLayoutSetting()
+const { colorPrimary, layoutPrimary, stylePrimary } = storeToRefs(store)
+const setColorPrimary = (color: string) => {
+  colorPrimary.value = color
+}
+const setLayoutPrimary = (layout: string) => {
+  layoutPrimary.value = layout
+}
+const setStylePrimary = (style: ThemeStyle) => {
+  stylePrimary.value = style
 }
 </script>
 <style lang="scss" scoped>
@@ -32,12 +64,15 @@ const showDrawer = () => {
   position: relative;
   cursor: pointer;
 
-  &::after {
+  &.active::after {
     content: '✔';
     position: absolute;
     right: 12px;
     bottom: 10px;
     color: $primaryColor;
   }
+}
+.colorNoActive {
+  visibility: hidden;
 }
 </style>
