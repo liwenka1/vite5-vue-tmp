@@ -3,7 +3,7 @@
     :theme="{
       token: {
         colorPrimary: themeData.colorPrimary,
-        borderRadius: `${themeData.borderRadius}px`,
+        // borderRadius: `${themeData.borderRadius}px`,
         colorBgBase: themeData.colorBgBase
       }
     }"

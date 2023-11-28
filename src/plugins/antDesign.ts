@@ -19,7 +19,10 @@ import {
   Drawer,
   Avatar,
   Dropdown,
-  MenuDivider
+  MenuDivider,
+  Descriptions,
+  DescriptionsItem,
+  Tooltip
 } from 'ant-design-vue'
 
 const components = [
@@ -42,7 +45,10 @@ const components = [
   Drawer,
   Avatar,
   Dropdown,
-  MenuDivider
+  MenuDivider,
+  Descriptions,
+  DescriptionsItem,
+  Tooltip
 ]
 
 export const setupAntDesign = (app: App) => {

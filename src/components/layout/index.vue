@@ -64,7 +64,7 @@ const handleMenu = (key: string) => {
   router.push(key)
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .logo {
   height: 32px;
   margin: 16px;
