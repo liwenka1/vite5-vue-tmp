@@ -7,12 +7,11 @@
       }
     }"
   >
-    <RouterView />
+    <router-view />
   </a-config-provider>
 </template>
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
 

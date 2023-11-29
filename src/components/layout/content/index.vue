@@ -9,12 +9,11 @@
     <a-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable" />
   </a-tabs>
   <div class="content" :class="{ isNotRealDark: stylePrimary.key !== 'realDark' }">
-    <RouterView />
+    <router-view />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { RouterView } from 'vue-router'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
 import { useTabsStore } from '@/store/useTabs'
