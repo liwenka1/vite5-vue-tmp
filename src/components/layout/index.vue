@@ -13,9 +13,7 @@
         <Header />
       </a-layout-header>
       <a-layout-content>
-        <div class="content" :class="{ isNotRealDark: stylePrimary.key !== 'realDark' }">
-          <RouterView />
-        </div>
+				<Content />
       </a-layout-content>
       <a-layout-footer style="text-align: center"> Ant Design ©2018 Created by Ant UED </a-layout-footer>
     </a-layout>
@@ -23,10 +21,10 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { RouterView } from 'vue-router'
-import Header from './header/index.vue'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
+import Header from './header/index.vue'
+import Content from './content/index.vue'
 import Menu from './menu/index.vue'
 
 const collapsed = ref<boolean>(false)
@@ -53,11 +51,6 @@ const getIsNotRealDark = (): boolean => {
 <style lang="scss" scoped>
 .header {
   padding: 0;
-}
-.content {
-  margin: 16px;
-  padding: 24px;
-  min-height: 360px;
 }
 .isNotRealDark {
   background: #fff;

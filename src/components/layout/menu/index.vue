@@ -35,15 +35,24 @@
         <file-outlined />
         <span>File</span>
       </a-menu-item>
+      <a-menu-item
+        v-for="router in routes[0].children"
+        :key="router.path"
+        :icon="() => h(router.meta?.icon as Component)"
+      >
+        <span>{{ router.meta?.title }}</span>
+      </a-menu-item>
     </a-menu>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { h, ref, Component } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
+import { PieChartOutlined, DesktopOutlined, UserOutlined, TeamOutlined, FileOutlined } from '@ant-design/icons-vue'
+import routes from '@/router/routers'
 
 interface Props {
   mode: 'horizontal' | 'inline'

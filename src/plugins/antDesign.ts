@@ -23,7 +23,9 @@ import {
   Descriptions,
   DescriptionsItem,
   Tooltip,
-  Tag
+  Tag,
+  Tabs,
+  TabPane
 } from 'ant-design-vue'
 
 const components = [
@@ -50,7 +52,9 @@ const components = [
   Descriptions,
   DescriptionsItem,
   Tooltip,
-  Tag
+  Tag,
+  Tabs,
+  TabPane
 ]
 
 export const setupAntDesign = (app: App) => {
