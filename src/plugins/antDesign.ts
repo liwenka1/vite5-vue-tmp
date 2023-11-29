@@ -25,7 +25,9 @@ import {
   Tooltip,
   Tag,
   Tabs,
-  TabPane
+  TabPane,
+  Checkbox,
+  InputPassword
 } from 'ant-design-vue'
 
 const components = [
@@ -54,7 +56,11 @@ const components = [
   Tooltip,
   Tag,
   Tabs,
-  TabPane
+  TabPane,
+  Form,
+  FormItem,
+  Checkbox,
+  InputPassword
 ]
 
 export const setupAntDesign = (app: App) => {
