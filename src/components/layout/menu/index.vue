@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
+import { useTabsStore } from '@/store/useTabs'
 import routes from '@/router/routers'
 import MenuItem from './menuItem.vue'
 
@@ -20,11 +20,11 @@ interface Props {
 
 const { mode } = defineProps<Props>()
 
-const selectedKeys = ref<string[]>(['home-home'])
-const openKeys = ref<string[]>(['/'])
+const LayoutSettingStore = useLayoutSetting()
+const { stylePrimary } = storeToRefs(LayoutSettingStore)
 
-const store = useLayoutSetting()	
-const { stylePrimary } = storeToRefs(store)
+const tabsStore = useTabsStore()
+const { selectedKeys, openKeys } = storeToRefs(tabsStore)
 </script>
 
 <style lang="scss" scoped>

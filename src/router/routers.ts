@@ -15,18 +15,23 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: '/home',
+    meta: { hideInMenu: true }
+  },
+  {
+    path: '/home',
     name: 'home',
+		redirect: '/home/home',
     meta: { title: '首页', icon: PieChartOutlined },
     component: Layout,
     children: [
       {
-        path: '/home',
+        path: 'home',
         name: 'home-home',
         meta: { title: '首页', icon: PieChartOutlined },
         component: Home
       },
       {
-        path: '/about',
+        path: 'about',
         name: 'home-about',
         meta: { title: '关于', icon: DesktopOutlined },
         component: About
@@ -36,23 +41,23 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/test',
     name: 'test',
-    redirect: '/test1',
+		redirect: '/test/test1',
     meta: { title: '测试', icon: PieChartOutlined },
     component: Layout,
     children: [
       {
-        path: '/test1',
+        path: 'test1',
         name: 'test-test1',
         meta: { title: '测试1', icon: PieChartOutlined },
         children: [
           {
-            path: '/test11',
+            path: 'test11',
             name: 'test-test1-test11',
             meta: { title: '测试11', icon: PieChartOutlined },
             component: Home
           },
           {
-            path: '/test12',
+            path: 'test12',
             name: 'test-test1-test12',
             meta: { title: '测试12', icon: DesktopOutlined },
             component: About
@@ -60,7 +65,7 @@ const routes: Array<RouteRecordRaw> = [
         ]
       },
       {
-        path: '/test2',
+        path: 'test2',
         name: 'test-test2',
         meta: { title: '测试2', icon: DesktopOutlined },
         component: About

@@ -5,9 +5,9 @@
     type="editable-card"
     class="tabs"
     :class="{ isNotRealDark: stylePrimary.key !== 'realDark' }"
-		@tabClick="handleTabPane"
+    @tabClick="handleTabPane"
   >
-    <a-tab-pane v-for="pane in panes" :key="pane.path" :tab="pane.title" :closable="pane.path === activeKey" />
+    <a-tab-pane v-for="pane in panes" :key="pane.name" :tab="pane.title" :closable="pane.name === activeKey" />
   </a-tabs>
   <div class="content" :class="{ isNotRealDark: stylePrimary.key !== 'realDark' }">
     <router-view />
@@ -18,6 +18,7 @@
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
 import { useTabsStore } from '@/store/useTabs'
+import { useRouter } from 'vue-router'
 
 const LayoutSettingStore = useLayoutSetting()
 const { stylePrimary } = storeToRefs(LayoutSettingStore)
@@ -25,15 +26,15 @@ const { stylePrimary } = storeToRefs(LayoutSettingStore)
 const tabsStore = useTabsStore()
 const { activeKey, panes } = storeToRefs(tabsStore)
 
-const handleTabPane = () => {
-  console.log('点击了一下')
+const router = useRouter()
+const handleTabPane = (name: string) => {
+  console.log(activeKey.value)
+
+  router.push({ name })
 }
 </script>
 
 <style lang="scss" scoped>
-.tabs {
-  margin: 0;
-}
 .content {
   margin: 16px;
   padding: 24px;

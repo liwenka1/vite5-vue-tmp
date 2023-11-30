@@ -1,18 +1,31 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 interface Pane {
   title: string
-  path: string
+  name: string
 }
 
 export const useTabsStore = defineStore('tabs', () => {
-  const activeKey = ref<Pane['path']>('/home')
+  const activeKey = ref<Pane['name']>('home-home')
   const setActiveKey = (pane: Pane) => {
-    activeKey.value = pane['path']
+    activeKey.value = pane['name']
   }
+  watch(
+    () => activeKey.value,
+    () => {
+      selectedKeys.value[0] = activeKey.value
+      const keys = activeKey.value.split('-')
+      let name = ''
+      for (const key of keys) {
+        name += key
+        openKeys.value.push(name)
+        name += '-'
+      }
+    }
+  )
 
-  const keys = ref<Set<string>>(new Set())
+  const keys = ref<Set<string>>(new Set(['home-home']))
   const addKey = (key: string) => {
     keys.value.add(key)
   }
@@ -20,12 +33,15 @@ export const useTabsStore = defineStore('tabs', () => {
   const panes = ref<Pane[]>([
     {
       title: '首页',
-      path: '/home'
+      name: 'home-home'
     }
   ])
   const addPane = (pane: Pane) => {
     panes.value.push(pane)
   }
 
-  return { activeKey, setActiveKey, keys, addKey, panes, addPane }
+  const selectedKeys = ref<string[]>(['home-home'])
+  const openKeys = ref<string[]>(['home'])
+
+  return { activeKey, setActiveKey, keys, addKey, panes, addPane, selectedKeys, openKeys }
 })
