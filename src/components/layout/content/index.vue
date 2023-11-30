@@ -28,8 +28,6 @@ const { activeKey, panes } = storeToRefs(tabsStore)
 
 const router = useRouter()
 const handleTabPane = (name: string) => {
-  console.log(activeKey.value)
-
   router.push({ name })
 }
 </script>
