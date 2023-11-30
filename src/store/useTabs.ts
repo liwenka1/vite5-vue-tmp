@@ -3,15 +3,29 @@ import { ref } from 'vue'
 
 interface Pane {
   title: string
-  content: string
-  key: string
-  closable: boolean
+  path: string
 }
 
 export const useTabsStore = defineStore('tabs', () => {
-  const activeKey = ref<Pane['key']>()
+  const activeKey = ref<Pane['path']>('/home')
+  const setActiveKey = (pane: Pane) => {
+    activeKey.value = pane['path']
+  }
 
-  const panes = ref<Pane[]>([])
+  const keys = ref<Set<string>>(new Set())
+  const addKey = (key: string) => {
+    keys.value.add(key)
+  }
 
-  return { activeKey, panes }
+  const panes = ref<Pane[]>([
+    {
+      title: '首页',
+      path: '/home'
+    }
+  ])
+  const addPane = (pane: Pane) => {
+    panes.value.push(pane)
+  }
+
+  return { activeKey, setActiveKey, keys, addKey, panes, addPane }
 })

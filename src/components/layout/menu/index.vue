@@ -1,7 +1,7 @@
 <template>
   <div :class="{ menu: mode === 'horizontal' }">
     <div class="logo" />
-    <a-menu v-model:selectedKeys="selectedKeys" :mode="mode" :theme="stylePrimary.value">
+    <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" :mode="mode" :theme="stylePrimary.value">
       <MenuItem :menus="routes" />
     </a-menu>
   </div>
@@ -20,9 +20,10 @@ interface Props {
 
 const { mode } = defineProps<Props>()
 
-const selectedKeys = ref<string[]>(['1'])
+const selectedKeys = ref<string[]>(['home-home'])
+const openKeys = ref<string[]>(['/'])
 
-const store = useLayoutSetting()
+const store = useLayoutSetting()	
 const { stylePrimary } = storeToRefs(store)
 </script>
 
