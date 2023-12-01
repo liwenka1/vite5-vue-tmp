@@ -11,7 +11,7 @@
 import { useLayoutSetting } from '@/store/useLayoutSetting'
 import { storeToRefs } from 'pinia'
 import { useTabsStore } from '@/store/useTabs'
-import routes from '@/router/routers'
+import { routes } from '@/router/routers'
 import MenuItem from './menuItem.vue'
 
 interface Props {

@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'home',
-		redirect: '/home/home',
+    redirect: '/home/home',
     meta: { title: '首页', icon: PieChartOutlined },
     component: Layout,
     children: [
@@ -41,7 +41,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/test',
     name: 'test',
-		redirect: '/test/test1',
+    redirect: '/test/test1',
     meta: { title: '测试', icon: PieChartOutlined },
     component: Layout,
     children: [
@@ -74,4 +74,29 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
-export default routes
+const treeToArray = (tree: Array<RouteRecordRaw>) => {
+  const result = []
+
+  tree.forEach((node) => {
+    const { name, meta, children } = node
+
+    if (!meta?.hideInMenu) {
+      const newNode = {
+        name,
+        meta
+      }
+
+      result.push(newNode)
+
+      if (children && children.length > 0) {
+        const childNodes = treeToArray(children)
+        result.push(...childNodes)
+      }
+    }
+  })
+
+  return result
+}
+const breadcrumbRouters = treeToArray(routes)
+
+export { routes, breadcrumbRouters }
